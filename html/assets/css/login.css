@@ -1,0 +1,28 @@
+.all{
+	width: 100%;
+	height: 100%;
+	background-color:black;
+	justify-content: flex-center;
+}
+.middle{
+	display: flex;
+	background-color: grey;
+	width: 400px;
+	height: 400px;
+}
+#index_name{
+	position:left-side;
+	display:flex;
+}
+#logo_imagen{
+	height: 150px;
+	width: 150px;
+}
+#fspan{
+	font-family:Arial;
+	font-size:1vw;
+}
+#index_name{
+	height: 40px;
+	width: 70px;
+}
