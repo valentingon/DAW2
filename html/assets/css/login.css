@@ -60,3 +60,6 @@ p{
 	display: flex;
 	flex-direction: column;
 }
+submit{
+	color: #177e50;
+}
