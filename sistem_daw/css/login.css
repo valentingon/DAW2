@@ -1,0 +1,65 @@
+.all{
+	max-width: 500px;
+	margin: 0 auto;
+	display: flex;
+	background-color:white;
+	height: 450px;
+	flex-direction: column;
+}
+body{
+	display: flex;
+	align-items: center;
+	background-color: #F5F5F5;
+}
+#logo_imagen{
+	height: 150px;
+	width: 200px;	
+}
+.primero{
+	width: 500px;
+	height: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 50px;
+	margin-top: 20px;
+}
+.segundo{
+	display: flex;
+	flex-direction: column;
+	height: 150px;
+	width: 500px;
+	align-items: center;
+
+}
+.tercera{
+	display: flex;
+	flex-direction: column;
+	width: 500px;
+	align-items: center;
+}
+form{
+	display: flex;
+	flex-direction: column;
+}
+button{
+	width: 100px;
+}
+#stuff{
+	width: 100px;
+	background-color: #F5F5F5;
+}
+.etiquetas{
+	margin-bottom: 10px;
+	background-color: #F5F5F5;
+}
+#fspan{
+	font-size: 50px;
+}
+p{
+	display: flex;
+	flex-direction: column;
+}
+submit{
+	color: #177e50;
+}
