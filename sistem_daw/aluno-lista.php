@@ -4,7 +4,7 @@ include_once 'classes/autoload.php';
 Login::checkAuth();
 
 $alunoDao = new AlunoDao();
-$lista = $AlunoDao->select();
+$lista = $alunoDao->select();
 ?>
 <html>
 	<head>
@@ -61,7 +61,6 @@ $lista = $AlunoDao->select();
 					<tr>
 						<th><i class="material-icons">person</i>Matricula</th>
 						<th><i class="material-icons">people_alt</i>Nome</th>
-						<th><i class="material-icons">account_box</i>Idade</th>
 						<th><i class="material-icons">account_box</i>Sexo</th>
 						<th><i class="material-icons">account_box</i>Imagem</th>
 						<th>Acciones</th>
@@ -71,7 +70,6 @@ $lista = $AlunoDao->select();
 					  <tr>
 						  <td><?php echo $aluno->getMatricula(); ?></td>
 						  <td><?php echo $aluno->getNome(); ?></td>
-						  <td><?php echo $aluno->getIdade(); ?></td>
 						  <td><?php echo $aluno->getSexo(); ?></td>
 						  <td><?php echo $aluno->getImagem(); ?></td>
 						  
@@ -84,7 +82,7 @@ $lista = $AlunoDao->select();
 				</table>
 			</div>
 		</section>
-		<script src="js/main.js"></script>
+		<script src="assets/js/main.js"></script>
 		
 	</body>
 </html>	

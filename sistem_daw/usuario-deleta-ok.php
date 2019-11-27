@@ -68,7 +68,7 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
 			</div>
 			<div id="medio">
 				<div class="conteudo" >
-					<h1>Deletado</h1>
+					<h1 class="cad_sus">Deletado com Sucesso!!!</h1>
 				</div>
 			</div>
 		</section>

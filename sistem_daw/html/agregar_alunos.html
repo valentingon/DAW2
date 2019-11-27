@@ -1,9 +1,3 @@
-
-<?php
-include_once 'classes/autoload.php';
-
-Login::checkAuth();
-?>
 <html>
 	<head>
 		<title>Inicio</title>
@@ -18,14 +12,14 @@ Login::checkAuth();
 						<img id="logo_imagen" src="assets/img/ifsul_logo.jpg">
 						<p id="menu_text">Viagens</p>
 							<div class="sidenav">
-							  <a href="welcome.php"><i class="material-icons">home</i>Inicio</a>
+							  <a href="welcome.html">Inicio</a>
 								
-								 <button class="dropdown-btn"><i class="material-icons">airplanemode_active</i>Viagems
+								 <button class="dropdown-btn"><i class="material-icons">airplanemode_active</i>Viajes
 								<i class="fa fa-caret-down"></i>
 							  </button>
 							  <div class="dropdown-container">
-								<a href="viagem-lista.php">Listar</a>
-								<a href="viagem-cadastra.php">Agregar</a>
+								<a href="#">Listar</a>
+								<a href="#">Agregar</a>
 								
 							  </div>
 							  
@@ -33,16 +27,16 @@ Login::checkAuth();
 								<i class="fa fa-caret-down"></i>
 							  </button>
 							  <div class="dropdown-container">
-								<a href="aluno-lista.php">Listar</a>
-								<a href="aluno-cadastra.php">Agregar</a>
+								<a href="#">Listar</a>
+								<a href="#">Agregar</a>
 							  </div>
 							  
-							   <button class="dropdown-btn"><i class="material-icons">supervised_user_circle</i>Usuarios
+							   <button class="dropdown-btn"><i class="material-icons">supervised_user_circle</i>Profesores 
 								<i class="fa fa-caret-down"></i>
 							  </button>
 							  <div class="dropdown-container">
-								<a href="usuario-lista.php">Listar</a>
-								<a href="usuario-cadastra.php">Agregar</a>
+								<a href="#">Listar</a>
+								<a href="#">Agregar</a>
 							  </div>
 							</div>
 					</div>
@@ -55,28 +49,22 @@ Login::checkAuth();
 				
 			</div>
 			<div id="medio">
-			<h1 id="perfil_texto">Cadastro de Usuario</h1>
+			<h1 id="perfil_texto">Perfíl del alumno</h1>
 				<div id="img_perfil">
-					<form  action="usuario-cadastra-ok.php" method="POST" enctype="multipart/form-data">
-						<p><label>Id</label>
-						<input type="text" name="id" required="true"></p>
+					<form  action="produto-cadastra-ok.php" method="POST" enctype="multipart/form-data">
+						<p><label>Nombre</label>
+						<input type="text" name="nome" required="true"></p>
 
-						<p><label>Nome</label>
-						<input  type="text" name="nome" required="true"></p>
+						<p><label>Idade</label>
+						<input  type="number"  name="idade" required="true" ></p>
 
-						<p><label>Senha</label>
-						<input  type="text" name="senha" required="true"></p>
-						
-						<p><label>Email</label>
-						<input  type="text" name="email" required="true"></p>
-						
-						<p><label>Tipo:</label>
-						<input list="tipos" name="tipos">
-								  <datalist id="tipos">
-									<option value="root">Root</option>
-									<option value="super">Supervisor</option>
-									<option value="profe">Profe</option>
-						</datalist></p>
+						<label>Sexo:</label>
+						 <input id="sexo_css" type="radio" name="gender" value="male">Homem
+						 <p><input type="radio" name="gender" value="female">Mulher</p>
+						 <p><input type="radio" name="gender" value="other"> Outro</p> 
+
+						<p><label>Imagem</label>
+						<input  type="file" placeholder="Imagem" name="imagem" required="true"></p>
 
 
 						<p><button type="submit"  class="button button1">Salvar</button></p>

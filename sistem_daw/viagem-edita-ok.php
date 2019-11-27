@@ -76,7 +76,7 @@ if (   !Validate::isEmpty('id')
 			</div>
 			<div id="medio">
 				<div class="conteudo">
-					<h1>Editado</h1>
+					<h1 class="cad_sus">Editado com Sucesso!!!</h1>
 				</div>
 			</div>
 		</section>

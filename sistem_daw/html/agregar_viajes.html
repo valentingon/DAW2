@@ -1,28 +1,8 @@
-<?php
-include_once 'classes/autoload.php';
-
-Login::checkAuth();
-
-//Verifica se veio tudo preenchido do formulário
-if (isset($_GET['id']) && $_GET['id'] != "") {
-
-    $aluno = new Aluno();
-    $aluno->setMatricula($_GET['id']);
-    
-	
-	//var_dump($aluno);die;
-
-    $alunoDao = new AlunoDao();
-    $alunoDao->delete($aluno);
-    
-    header( "Refresh:5; url=aluno-lista.php", true, 303);
-}
-?>
 <html>
 	<head>
 		<title>Inicio</title>
 		<meta charset="UTF-8">
-		<link rel='stylesheet' type="text/css" href="assets/css/welcome.css">
+		<link rel='stylesheet' type="text/css" href="assets/css/perfil.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	</head>
@@ -32,14 +12,14 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
 						<img id="logo_imagen" src="assets/img/ifsul_logo.jpg">
 						<p id="menu_text">Viagens</p>
 							<div class="sidenav">
-							  <a href="welcome.php"><i class="material-icons">home</i>Inicio</a>
+							  <a href="welcome.html">Inicio</a>
 								
-								 <button class="dropdown-btn"><i class="material-icons">airplanemode_active</i>Viagems
+								 <button class="dropdown-btn"><i class="material-icons">airplanemode_active</i>Viajes
 								<i class="fa fa-caret-down"></i>
 							  </button>
 							  <div class="dropdown-container">
-								<a href="viagem-lista.php">Listar</a>
-								<a href="viagem-cadastra.php">Agregar</a>
+								<a href="#">Listar</a>
+								<a href="#">Agregar</a>
 								
 							  </div>
 							  
@@ -47,16 +27,16 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
 								<i class="fa fa-caret-down"></i>
 							  </button>
 							  <div class="dropdown-container">
-								<a href="aluno-lista.php">Listar</a>
-								<a href="aluno-cadastra.php">Agregar</a>
+								<a href="#">Listar</a>
+								<a href="#">Agregar</a>
 							  </div>
 							  
-							   <button class="dropdown-btn"><i class="material-icons">supervised_user_circle</i>Usuarios
+							   <button class="dropdown-btn"><i class="material-icons">supervised_user_circle</i>Profesores 
 								<i class="fa fa-caret-down"></i>
 							  </button>
 							  <div class="dropdown-container">
-								<a href="usuario-lista.php">Listar</a>
-								<a href="usuario-cadastra.php">Agregar</a>
+								<a href="#">Listar</a>
+								<a href="#">Agregar</a>
 							  </div>
 							</div>
 					</div>
@@ -69,12 +49,27 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
 				
 			</div>
 			<div id="medio">
-				<div class="conteudo" >
-					<h1 class="cad_sus">Deletado com Sucesso!!!</h1>
+			<h1 id="perfil_texto">Perfíl do Viagem</h1>
+				<div id="img_perfil">
+					<form  action="produto-cadastra-ok.php" method="POST" enctype="multipart/form-data">
+						<p><label>ID</label>
+						<input type="text" name="id" required="true"></p>
+
+						<p><label>Lugar</label>
+						<input  type="text"  name="lugar" required="true" ></p>
+
+						<p><label>Distancia</label>
+						<input  type="number"  name="distancia" required="true" ></p>
+
+						<p><label>N° alunos</label>
+						<input  type="number" name="numero_alu" required="true"></p>
+
+
+						<p><button type="submit"  class="button button1">Salvar</button></p>
+					</form>
 				</div>
 			</div>
 		</section>
 		<script src="assets/js/main.js"></script>
-		
 	</body>
 </html>	

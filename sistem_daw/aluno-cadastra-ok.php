@@ -4,18 +4,20 @@ include_once 'classes/autoload.php';
 Login::checkAuth();
 
 //Verifica se veio tudo preenchido do formulário
-if (   !Validate::isEmpty('matricula')
+/*if (   !Validate::isEmpty('matricula')
     && !Validate::isEmpty('nome')
     && !Validate::isEmpty('sexo')
-    ) {
+    && !Validate::isEmpty('imagem')
+    ) {*/
 
 //inicio
 $nomeArquivo="";
 if (isset($_FILES['imagem'])&& $_FILES['imagem']['name'] !=""){
+
   $nomeArquivo=$_FILES['imagem']['name'];
   $origem=$_FILES['imagem']['tmp_name'];
-  $destino='img/'.$_FILES['imagem']['name'];
-  $uploaddir = "img/";
+  $destino='assets/img'.$_FILES['imagem']['name'];
+  $uploaddir = "assets/img";
   $uploadfile = $uploaddir . basename($_FILES['imagem']['name']);
  if(!move_uploaded_file($origem, $uploadfile)){
     echo "erro33orientales";
@@ -31,7 +33,7 @@ if (isset($_FILES['imagem'])&& $_FILES['imagem']['name'] !=""){
 
     $alunoDao = new AlunoDao();
     $alunoDao->insert($aluno);
-}
+//}
 ?>
 <html>
 	<head>
@@ -85,7 +87,7 @@ if (isset($_FILES['imagem'])&& $_FILES['imagem']['name'] !=""){
 			</div>
 			<div id="medio">
 				<div class="conteudo">
-					<h1>cadastrado</h1>
+					<h1 class="cad_sus">Cadastrado com Sucesso!!!</h1>
 				</div>
 			</div>
 		</section>

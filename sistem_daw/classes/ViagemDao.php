@@ -52,9 +52,10 @@ class ViagemDao extends Db implements InterfaceDao {
             $viagem->setRelatorio($linha['relatorio']);
             
 
-            $viagems = $viagem;
+            $viagems[] = $viagem;
+			return $viagems;
         }
-        return $viagems;
+ 
     }
 
     public function selectById($viagem) {

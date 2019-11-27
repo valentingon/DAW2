@@ -5,13 +5,10 @@ class AlunoDao extends Db implements InterfaceDao {
     private $table = 'aluno';
 
     public function insert($aluno) {
-        $stmt = $this->conexao->prepare("INSERT INTO {$this->table} "
-        . " (matricula, nome, idade, sexo, imagem) "
-         . " VALUES (:matricula, :nome, :idade, :sexo, :imagem)");
+        $stmt = $this->conexao->prepare("INSERT INTO aluno ". " (matricula, nome, sexo, imagem) ". " VALUES (:matricula, :nome, :sexo, :imagem)");
 
         $stmt->bindValue(':matricula', $aluno->getMatricula());
         $stmt->bindValue(':nome', $aluno->getNome());
-        $stmt->bindValue(':idade', $aluno->getIdade());
         $stmt->bindValue(':sexo', $aluno->getSexo());
         $stmt->bindValue(':imagem', $aluno->getImagem());
 
@@ -56,13 +53,12 @@ class AlunoDao extends Db implements InterfaceDao {
             $aluno = new Aluno();
             $aluno->setMatricula($linha['matricula']);
             $aluno->setNome($linha['nome']);
-            $aluno->setIdade($linha['idade']);
             $aluno->setSexo($linha['sexo']);
             $aluno->setImagem($linha['imagem']);
 
-            $nomes[] = $aluno;
+            $alunos[] = $aluno;
         }
-        return $nomes;
+        return $alunos;
     }
 
     public function selectById($aluno) {
@@ -76,7 +72,6 @@ class AlunoDao extends Db implements InterfaceDao {
         $aluno = new Aluno();
 			$aluno->setMatricula($linha['matricula']);
             $aluno->setNome($linha['nome']);
-            $aluno->setIdade($linha['idade']);
             $aluno->setSexo($linha['sexo']);
             $aluno->setImagem($linha['imagem']);
         

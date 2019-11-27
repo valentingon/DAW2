@@ -54,7 +54,7 @@ Login::checkAuth();
 				
 			</div>
 			<div id="medio">
-			<h1 id="perfil_texto">Perfíl del alumno</h1>
+			<h1 id="perfil_texto">Cadastro de Aluno</h1>
 				<div id="img_perfil">
 					<form  action="aluno-cadastra-ok.php" method="POST" enctype="multipart/form-data">
 						<p><label>Matricula</label>
@@ -67,9 +67,9 @@ Login::checkAuth();
 						<input  type="number"  name="idade" required="true" ></p>
 
 						<label>Sexo:</label>
-						 <input id="sexo_css" type="radio" name="gender" value="male">Homem
-						 <p><input type="radio" name="gender" value="female">Mulher</p>
-						 <p><input type="radio" name="gender" value="other"> Outro</p> 
+						 <input id="sexo_css" type="radio" name="sexo" value="homem">Homem
+						 <p><input type="radio" name="sexo" value="mulher">Mulher</p>
+						 <p><input type="radio" name="sexo" value="outro"> Outro</p> 
 
 						<p><label>Imagem</label>
 						<input  type="file" placeholder="Imagem" name="imagem" required="true"></p>

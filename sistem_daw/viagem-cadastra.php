@@ -56,20 +56,20 @@ Login::checkAuth();
 			<div id="medio">
 				<div class="forrm">
 					<form  action="viagem-cadastra-ok.php" method="POST" enctype="multipart/form-data">
-						<label>Distancia</label>
+						<p><label>Distancia</label></p>
 						<input type="number" name="distancia" required="true">
 
-						<label>Lugar</label>
+						<p><label>Lugar</label></p>
 						<input  type="text" name="descricao" required="true">
 
-						<label>Numero de Alunos</label>
+						<p><label>Numero de Alunos</label></p>
 						<input  type="number" name="alunos" required="true">
 
-						<label>Relatorio</label>
+						<p><label>Relatorio</label></p>
 						<input  type="text" name="relatorio" required="true">
 					
 
-					<button type="submit"  class="button button1">Salvar</button>
+					<p><button type="submit"  class="button button1">Salvar</button></p>
 
 				</form>
 				</div>

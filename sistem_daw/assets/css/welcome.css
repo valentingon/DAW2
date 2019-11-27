@@ -71,6 +71,7 @@ body{
 	background-color: #f5f5f5;
 	justify-content:center;
 	text-align:center;
+	margin-top:-20px;
 }
 #welcome{
 	margin:0;
@@ -114,6 +115,23 @@ a{
 #foto{
 	height:250px;
 	width:400px;
+}
+.cad_sus{
+	padding-top:50px;
+}
+.forrm{
+	height:500px !important ; 
+	width:400px !important ;
+	background-color:white !important ;
+	margin-left:800px;
+	margin-top:-15px;
+	padding-top:50px;
+}
+p{
+	margin-top:10px;
+}
+.cad_sus{
+	padding-top:50px;
 }
 
 /* Fixed sidenav, full height */

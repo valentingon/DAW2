@@ -71,7 +71,7 @@ if (isset($_POST['distancia']) && $_POST['distancia'] != ""
 			</div>
 			<div id="medio">
 				<div class="conteudo">
-					<h1>cadastrado</h1>
+					<h1 class="cad_sus">Cadastrado com Sucesso!!!</h1>
 				</div>
 			</div>
 		</section>

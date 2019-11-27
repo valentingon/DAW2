@@ -3,7 +3,6 @@
 class Aluno {
     private $matricula;
     private $nome;
-    private $idade;
     private $sexo;
     private $imagem;
     
@@ -15,9 +14,6 @@ class Aluno {
         return $this->nome;
     }
 
-    function getIdade() {
-        return $this->idade;
-    }
 
     function getSexo() {
         return $this->sexo;
@@ -35,9 +31,6 @@ class Aluno {
         $this->nome = $nome;
     }
 
-    function setIdade($idade) {
-        $this->idade = $idade;
-    }
 
     function setSexo($sexo) {
         $this->sexo = $sexo;

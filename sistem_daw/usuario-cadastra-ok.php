@@ -8,17 +8,24 @@ if (isset($_POST['id']) && $_POST['id'] != ""
         && isset($_POST['nome']) && $_POST['nome'] != ""
         && isset($_POST['senha']) && $_POST['senha'] != ""
         && isset($_POST['email']) && $_POST['email'] != ""
-        && isset($_POST['tipo']) && $_POST['tipo'] != "") {
+        && isset($_POST['tipos']) && $_POST['tipos'] != "") {
+			
+		$usuario = new Usuario();
+		$usuario->setId($_POST['id']);
+		$usuario->setNome($_POST['nome']);
+		$usuario->setSenha($_POST['senha']);
+		$usuario->setEmail($_POST['email']);
+		$usuario->setTipo($_POST['tipos']);
 
-    $usuario = new Usuario();
-    $usuario->setId($_POST['id']);
-    $usuario->setNome($_POST['nome']);
-    $usuario->setSenha($_POST['senha']);
-    $usuario->setEmail($_POST['email']);
-    $usuario->setEmail($_POST['tipo']);
+		$usuarioDao = new UsuarioDao();
+		$usuarioDao->insert($usuario);
+		
+		//var_dump($usuario);die;
 
-    $usuarioDao = new UsuarioDao();
-    $usuarioDao->insert($usuario);
+		
+	}
+	
+
 ?>
 <html>
 	<head>
@@ -72,7 +79,7 @@ if (isset($_POST['id']) && $_POST['id'] != ""
 			</div>
 			<div id="medio">
 				<div class="conteudo">
-					<h1>cadastrado</h1>
+					<h1 class="cad_sus">Cadastrado com Sucesso!!!</h1>
 				</div>
 			</div>
 		</section>
