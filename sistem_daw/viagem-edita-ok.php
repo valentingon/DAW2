@@ -5,76 +5,71 @@ Login::checkAuth();
 
 //Verifica se veio tudo preenchido do formulário
 if (   !Validate::isEmpty('id')
-    && !Validate::isEmpty('produto')
-    && !Validate::isEmpty('descricao')
-    && !Validate::isEmpty('preco')) {
+    && !Validate::isEmpty('distancia')
+    && !Validate::isEmpty('lugar')
+    && !Validate::isEmpty('n_alunos')
+    && !Validate::isEmpty('relatorio')
+	
+	) 
 
-      //inicio
-      $nomeArquivo="";
-      if (isset($_FILES['imagem'])&& $_FILES['imagem']['name'] !=""){
-        $nomeArquivo=$_FILES['imagem']['name'];
-        $origem=$_FILES['imagem']['tmp_name'];
-        $destino='upload/'.$_FILES['imagem']['name'];
-        $uploaddir = "upload/";
-        $uploadfile = $uploaddir . basename($_FILES['imagem']['name']);
-       if(!move_uploaded_file($origem, $uploadfile)){
-          echo "erro33orientales";
-          die;
-       }
-      
-      }
+    $viagem = new Viagem();
+    $viagem->setId($_POST['id']);
+    $viagem->setDistancia($_POST['distancia']);
+    $viagem->setLugar($_POST['lugar']);
+    $viagem->setN_alunos($_POST['n_alunos']);
+    $viagem->setRelatorio($_POST['relatorio']);
+   
 
-    $produto = new Produto();
-    $produto->setId($_POST['id']);
-    $produto->setProduto($_POST['produto']);
-    $produto->setDescricao($_POST['descricao']);
-    $produto->setPreco($_POST['preco']);
-    $produto->setImagem($nomeArquivo);
-
-    $produtoDao = new ProdutoDao();
-    $produtoDao->update($produto);
+    $viagemDao = new ViagemDao();
+    $viagemDao->update($viagem);
 }
 ?>
 <html>
 	<head>
 		<title>Inicio</title>
 		<meta charset="UTF-8">
-		<link rel='stylesheet' type="text/css" href="css/welcome.css">
-		<link rel='stylesheet' type="text/css" href="css/produto.css">
+		<link rel='stylesheet' type="text/css" href="assets/css/welcome.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	</head>
 	<body>
 			<nav id="barra-iz">
 				<div id="primero">
-						<img id="logo_imagen" src="upload/tattoo_logo.png">
-						<p id="menu_text">Tattoos</p>
+						<img id="logo_imagen" src="assets/img/ifsul_logo.jpg">
+						<p id="menu_text">Viagens</p>
 							<div class="sidenav">
-							  <a href="welcome.php">Inicio</a>
+							  <a href="welcome.php"><i class="material-icons">home</i>Inicio</a>
 								
-								 <button class="dropdown-btn">Usuarios
+								 <button class="dropdown-btn"><i class="material-icons">airplanemode_active</i>Viagems
+								<i class="fa fa-caret-down"></i>
+							  </button>
+							  <div class="dropdown-container">
+								<a href="viagem-lista.php">Listar</a>
+								<a href="viagem-cadastra.php">Agregar</a>
+								
+							  </div>
+							  
+							   <button class="dropdown-btn"><i class="material-icons">school</i>Alumnos
+								<i class="fa fa-caret-down"></i>
+							  </button>
+							  <div class="dropdown-container">
+								<a href="aluno-lista.php">Listar</a>
+								<a href="aluno-cadastra.php">Agregar</a>
+							  </div>
+							  
+							   <button class="dropdown-btn"><i class="material-icons">supervised_user_circle</i>Usuarios
 								<i class="fa fa-caret-down"></i>
 							  </button>
 							  <div class="dropdown-container">
 								<a href="usuario-lista.php">Listar</a>
-								<a href="usuario-cadastro.php">Agregar</a>
-								
+								<a href="usuario-cadastra.php">Agregar</a>
 							  </div>
-							  
-							   <button class="dropdown-btn">Productos
-								<i class="fa fa-caret-down"></i>
-							  </button>
-							  <div class="dropdown-container">
-								<a href="produto-lista.php">Listar</a>
-								<a href="produto-cadastra.php">Agregar</a>
-							  </div>
-							  
 							</div>
 					</div>
 			</nav>
 			<div id="sup">
 				<div id="sup_ind">
-					<p id="sis">Sistema de Tattoos</p>
+					<p id="sis">Sistema de Viagens</p>
 					<p id="perfil"><a href="perfil.html">| Meu Perfil</a></p>
 				</div>
 				
@@ -83,8 +78,9 @@ if (   !Validate::isEmpty('id')
 				<div class="conteudo">
 					<h1>Editado</h1>
 				</div>
-			</div>	
-		<script src="js/main.js"></script>
+			</div>
+		</section>
+		<script src="assets/js/main.js"></script>
 		
 	</body>
-</html>		  
+</html>	

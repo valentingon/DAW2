@@ -20,14 +20,14 @@ $lista = $viagemDao->select();
 						<img id="logo_imagen" src="assets/img/ifsul_logo.jpg">
 						<p id="menu_text">Viagens</p>
 							<div class="sidenav">
-							  <a href="welcome.php"><i class="material-icons">home</i>Inicio</a>
+							  <a href="welcome.html">Inicio</a>
 								
-								 <button class="dropdown-btn"><i class="material-icons">airplanemode_active</i>Viagems
+								 <button class="dropdown-btn"><i class="material-icons">airplanemode_active</i>Viajes
 								<i class="fa fa-caret-down"></i>
 							  </button>
 							  <div class="dropdown-container">
-								<a href="viagem-lista.php">Listar</a>
-								<a href="viagem-cadastra.php">Agregar</a>
+								<a href="#">Listar</a>
+								<a href="#">Agregar</a>
 								
 							  </div>
 							  
@@ -35,16 +35,16 @@ $lista = $viagemDao->select();
 								<i class="fa fa-caret-down"></i>
 							  </button>
 							  <div class="dropdown-container">
-								<a href="aluno-lista.php">Listar</a>
-								<a href="aluno-cadastra.php">Agregar</a>
+								<a href="#">Listar</a>
+								<a href="#">Agregar</a>
 							  </div>
 							  
-							   <button class="dropdown-btn"><i class="material-icons">supervised_user_circle</i>Usuarios
+							   <button class="dropdown-btn"><i class="material-icons">supervised_user_circle</i>Profesores 
 								<i class="fa fa-caret-down"></i>
 							  </button>
 							  <div class="dropdown-container">
-								<a href="usuario-lista.php">Listar</a>
-								<a href="usuario-cadastra.php">Agregar</a>
+								<a href="#">Listar</a>
+								<a href="#">Agregar</a>
 							  </div>
 							</div>
 					</div>
@@ -73,13 +73,13 @@ $lista = $viagemDao->select();
 						<td><?php echo $viagem->getLugar(); ?></td>
 						<td><?php echo $viagem->getN_numeros(); ?></td>
 						<td><?php echo $viagem->getRelatorio(); ?></td>
-						
+						<td><img  width="50" src="upload/<?php echo $produto->getImagem(); ?>"/></td>
 						<td >
-							<i id="act1" class="material-icons" onclick="window.location='viagem-edita.php?id=<?php echo $viagem->getId(); ?>';">create</i>
-							<i class="material-icons" onclick="confirm('Deseja exclir este registro?') ? window.location='viagem-deleta-ok.php?id=<?php echo $viagem->getId(); ?>' : stop = false;" >remove_circle</i>
+							<i id="act1" class="material-icons" onclick="window.location='produto-edita.php?id=<?php echo $produto->getId(); ?>';">create</i>
+							<i class="material-icons" onclick="confirm('Deseja exclir este registro?') ? window.location='produto-deleta-ok.php?id=<?php echo $produto->getId(); ?>' : stop = false;" >remove_circle</i>
 						</td>
 					</tr>
-					<?php endforeach; ?>
+					<?php endforeach; ?>>
 				</table>
 				
 			</div>

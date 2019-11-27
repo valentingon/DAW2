@@ -5,6 +5,7 @@ class Usuario {
     private $nome;
     private $senha;
     private $email;
+    private $tipo;
     
     function getId() {
         return $this->id;
@@ -21,6 +22,10 @@ class Usuario {
     function getEmail() {
         return $this->email;
     }
+	
+	function getTipo() {
+        return $this->tipo;
+    }
 
     function setId($id) {
         $this->id = $id;
@@ -36,6 +41,10 @@ class Usuario {
 
     function setEmail($email) {
         $this->email = $email;
+    }
+	
+	function setTipo($tipo) {
+        $this->tipo = $tipo;
     }
 
 

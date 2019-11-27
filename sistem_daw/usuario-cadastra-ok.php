@@ -4,20 +4,21 @@ include_once 'classes/autoload.php';
 Login::checkAuth();
 
 //Verifica se veio tudo preenchido do formulário
-if (isset($_POST['distancia']) && $_POST['distancia'] != "" 
-        && isset($_POST['lugar']) && $_POST['lugar'] != ""
-        && isset($_POST['n_alunos']) && $_POST['n_alunos'] != ""
-        && isset($_POST['relatorio']) && $_POST['relatorio'] != "") {
+if (isset($_POST['id']) && $_POST['id'] != "" 
+        && isset($_POST['nome']) && $_POST['nome'] != ""
+        && isset($_POST['senha']) && $_POST['senha'] != ""
+        && isset($_POST['email']) && $_POST['email'] != ""
+        && isset($_POST['tipo']) && $_POST['tipo'] != "") {
 
-    $viagem = new Viagem();
-    $viagem->setDistancia($_POST['distancia']);
-    $viagem->setLugar($_POST['lugar']);
-    $viagem->setN_alunos($_POST['n_alunos']);
-    $viagem->setRelatorio($_POST['relatorio']);
+    $usuario = new Usuario();
+    $usuario->setId($_POST['id']);
+    $usuario->setNome($_POST['nome']);
+    $usuario->setSenha($_POST['senha']);
+    $usuario->setEmail($_POST['email']);
+    $usuario->setEmail($_POST['tipo']);
 
-    $viagemDao = new ViagemDao();
-    $viagemDao->insert($viagem);
-}
+    $usuarioDao = new UsuarioDao();
+    $usuarioDao->insert($usuario);
 ?>
 <html>
 	<head>

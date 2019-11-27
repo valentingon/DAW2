@@ -1,24 +1,3 @@
-<?php
-include_once 'classes/autoload.php';
-
-Login::checkAuth();
-
-//Verifica se veio tudo preenchido do formulário
-if (isset($_POST['distancia']) && $_POST['distancia'] != "" 
-        && isset($_POST['lugar']) && $_POST['lugar'] != ""
-        && isset($_POST['n_alunos']) && $_POST['n_alunos'] != ""
-        && isset($_POST['relatorio']) && $_POST['relatorio'] != "") {
-
-    $viagem = new Viagem();
-    $viagem->setDistancia($_POST['distancia']);
-    $viagem->setLugar($_POST['lugar']);
-    $viagem->setN_alunos($_POST['n_alunos']);
-    $viagem->setRelatorio($_POST['relatorio']);
-
-    $viagemDao = new ViagemDao();
-    $viagemDao->insert($viagem);
-}
-?>
 <html>
 	<head>
 		<title>Inicio</title>
@@ -26,6 +5,7 @@ if (isset($_POST['distancia']) && $_POST['distancia'] != ""
 		<link rel='stylesheet' type="text/css" href="assets/css/welcome.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		
 	</head>
 	<body>
 			<nav id="barra-iz">
@@ -33,14 +13,14 @@ if (isset($_POST['distancia']) && $_POST['distancia'] != ""
 						<img id="logo_imagen" src="assets/img/ifsul_logo.jpg">
 						<p id="menu_text">Viagens</p>
 							<div class="sidenav">
-							  <a href="welcome.php"><i class="material-icons">home</i>Inicio</a>
+							  <a href="welcome.html"><i class="material-icons">home</i>Inicio</a>
 								
-								 <button class="dropdown-btn"><i class="material-icons">airplanemode_active</i>Viagems
+								 <button class="dropdown-btn"><i class="material-icons">airplanemode_active</i>Viajes
 								<i class="fa fa-caret-down"></i>
 							  </button>
 							  <div class="dropdown-container">
-								<a href="viagem-lista.php">Listar</a>
-								<a href="viagem-cadastra.php">Agregar</a>
+								<a href="#">Listar</a>
+								<a href="#">Agregar</a>
 								
 							  </div>
 							  
@@ -48,16 +28,16 @@ if (isset($_POST['distancia']) && $_POST['distancia'] != ""
 								<i class="fa fa-caret-down"></i>
 							  </button>
 							  <div class="dropdown-container">
-								<a href="aluno-lista.php">Listar</a>
-								<a href="aluno-cadastra.php">Agregar</a>
+								<a href="#">Listar</a>
+								<a href="#">Agregar</a>
 							  </div>
 							  
 							   <button class="dropdown-btn"><i class="material-icons">supervised_user_circle</i>Usuarios
 								<i class="fa fa-caret-down"></i>
 							  </button>
 							  <div class="dropdown-container">
-								<a href="usuario-lista.php">Listar</a>
-								<a href="usuario-cadastra.php">Agregar</a>
+								<a href="#">Listar</a>
+								<a href="#">Agregar</a>
 							  </div>
 							</div>
 					</div>
@@ -70,12 +50,9 @@ if (isset($_POST['distancia']) && $_POST['distancia'] != ""
 				
 			</div>
 			<div id="medio">
-				<div class="conteudo">
-					<h1>cadastrado</h1>
-				</div>
+				<h1 id="welcome">Bem Vindo ao Sistema</h1>
 			</div>
 		</section>
 		<script src="assets/js/main.js"></script>
-		
 	</body>
 </html>	

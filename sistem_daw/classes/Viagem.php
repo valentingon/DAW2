@@ -5,6 +5,7 @@ class Viagem {
     private $distancia;
     private $lugar;
     private $n_alunos;
+    private $relatorio;
     
     function getId() {
         return $this->id;
@@ -21,6 +22,10 @@ class Viagem {
     function getN_alunos() {
         return $this->n_alunos;
     }
+	
+	function getRelatorio() {
+        return $this->relatorio;
+    }
 
     function setId($id) {
         $this->id = $id;
@@ -34,8 +39,12 @@ class Viagem {
         $this->lugar = $lugar;
     }
 
-    function setN_alunos($N_alunos) {
+    function setN_alunos($n_alunos) {
         $this->n_alunos = $n_alunos;
+    }
+	
+	function setRelatorio($relatorio) {
+        $this->relatorio = $relatorio;
     }
 
 

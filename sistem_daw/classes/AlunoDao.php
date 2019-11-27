@@ -27,7 +27,7 @@ class AlunoDao extends Db implements InterfaceDao {
                 . "imagem = :imagem "
                 . "WHERE matricula = :matricula;");
 
-        $stmt->bindValue(':matricula', aluno->getMatricula());
+        $stmt->bindValue(':matricula', $aluno->getMatricula());
         $stmt->bindValue(':nome', $aluno->getNome());
         $stmt->bindValue(':idade', $aluno->getIdade());
         $stmt->bindValue(':sexo', $aluno->getSexo());

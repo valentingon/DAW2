@@ -1,23 +1,10 @@
-<?php
+<?php 
 include_once 'classes/autoload.php';
 
 Login::checkAuth();
 
-//Verifica se veio tudo preenchido do formulário
-if (isset($_POST['distancia']) && $_POST['distancia'] != "" 
-        && isset($_POST['lugar']) && $_POST['lugar'] != ""
-        && isset($_POST['n_alunos']) && $_POST['n_alunos'] != ""
-        && isset($_POST['relatorio']) && $_POST['relatorio'] != "") {
-
-    $viagem = new Viagem();
-    $viagem->setDistancia($_POST['distancia']);
-    $viagem->setLugar($_POST['lugar']);
-    $viagem->setN_alunos($_POST['n_alunos']);
-    $viagem->setRelatorio($_POST['relatorio']);
-
-    $viagemDao = new ViagemDao();
-    $viagemDao->insert($viagem);
-}
+$usuarioDao = new UsuarioDao();
+$lista = $usuarioDao->select();
 ?>
 <html>
 	<head>
@@ -33,14 +20,14 @@ if (isset($_POST['distancia']) && $_POST['distancia'] != ""
 						<img id="logo_imagen" src="assets/img/ifsul_logo.jpg">
 						<p id="menu_text">Viagens</p>
 							<div class="sidenav">
-							  <a href="welcome.php"><i class="material-icons">home</i>Inicio</a>
+							  <a href="welcome.html">Inicio</a>
 								
-								 <button class="dropdown-btn"><i class="material-icons">airplanemode_active</i>Viagems
+								 <button class="dropdown-btn"><i class="material-icons">airplanemode_active</i>Viajes
 								<i class="fa fa-caret-down"></i>
 							  </button>
 							  <div class="dropdown-container">
-								<a href="viagem-lista.php">Listar</a>
-								<a href="viagem-cadastra.php">Agregar</a>
+								<a href="#">Listar</a>
+								<a href="#">Agregar</a>
 								
 							  </div>
 							  
@@ -48,16 +35,16 @@ if (isset($_POST['distancia']) && $_POST['distancia'] != ""
 								<i class="fa fa-caret-down"></i>
 							  </button>
 							  <div class="dropdown-container">
-								<a href="aluno-lista.php">Listar</a>
-								<a href="aluno-cadastra.php">Agregar</a>
+								<a href="#">Listar</a>
+								<a href="#">Agregar</a>
 							  </div>
 							  
-							   <button class="dropdown-btn"><i class="material-icons">supervised_user_circle</i>Usuarios
+							   <button class="dropdown-btn"><i class="material-icons">supervised_user_circle</i>Profesores 
 								<i class="fa fa-caret-down"></i>
 							  </button>
 							  <div class="dropdown-container">
-								<a href="usuario-lista.php">Listar</a>
-								<a href="usuario-cadastra.php">Agregar</a>
+								<a href="#">Listar</a>
+								<a href="#">Agregar</a>
 							  </div>
 							</div>
 					</div>
@@ -70,9 +57,33 @@ if (isset($_POST['distancia']) && $_POST['distancia'] != ""
 				
 			</div>
 			<div id="medio">
-				<div class="conteudo">
-					<h1>cadastrado</h1>
-				</div>
+				<table>
+					<tr>
+						<th>ID</th>
+						<th>Usuario</th>
+						<th>Senha</th>
+						<th>Imagem</th>
+						<th>Tipo</th>
+						<th>Imagem</th>
+						<th>Acciones</th>
+					</tr>
+					<tr>
+						<?php foreach($lista as $usario): ?>
+                              
+					  <tr>
+						  <td><?php echo $usario->getId(); ?></td>
+						  <td><?php echo $usario->getNome(); ?></td>
+						  <td><?php echo $usario->getEmail(); ?></td>
+						  
+						<td >
+							<i id="act1" class="material-icons" onclick="window.location='usuario-edita.php?id=<?php echo $usario->getId(); ?>';">create</i>
+							<i class="material-icons" onclick="confirm('Deseja exclir este registro?') ? window.location='usuario-deleta-ok.php?id=<?php echo $usario->getId(); ?>' : stop = false;" >remove_circle</i>
+						</td>
+					</tr>
+					<?php endforeach; ?>
+					</tr>
+				</table>
+				
 			</div>
 		</section>
 		<script src="assets/js/main.js"></script>

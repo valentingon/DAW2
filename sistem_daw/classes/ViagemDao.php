@@ -1,15 +1,16 @@
 <?php
 
-class UsuarioDao extends Db implements InterfaceDao {
+class ViagemDao extends Db implements InterfaceDao {
 
     private $table = 'viagem';
 
     public function insert($viagem) {
-        $stmt = $this->conexao->prepare("INSERT INTO {$this->table} (distancia, lugar, n_alunos) VALUES (:distancia, :lugar, :n_alunos)");
+        $stmt = $this->conexao->prepare("INSERT INTO {$this->table} (distancia, lugar, n_alunos, relatorio) VALUES (:distancia, :lugar, :n_alunos, :relatorio)");
 
         $stmt->bindValue(':distancia', $viagem->getDistancia());
         $stmt->bindValue(':lugar', $viagem->getLugar());
         $stmt->bindValue(':n_alunos', $viagem->getN_alunos());
+        $stmt->bindValue(':relatorio', $viagem->getRelatorio());
 
         return $stmt->execute();
     }
@@ -22,6 +23,7 @@ class UsuarioDao extends Db implements InterfaceDao {
         $stmt->bindValue(':distancia', $viagem->getDistancia());
         $stmt->bindValue(':lugar', $viagem->getLugar());
         $stmt->bindValue(':n_alunos', $viagem->getN_alunos());
+        $stmt->bindValue(':relatorio', $viagem->getRelatorio());
 
         return $stmt->execute();
     }    
@@ -43,12 +45,14 @@ class UsuarioDao extends Db implements InterfaceDao {
 
         while ($linha = $stmt->fetch()) {
             $viagem = new Viagem();
+			$viagem->setId($linha['id']);
             $viagem->setDistancia($linha['distancia']);
             $viagem->setLugar($linha['lugar']);
             $viagem->setN_alunos($linha['n_alunos']);
-            $viagem->setId($linha['id']);
+            $viagem->setRelatorio($linha['relatorio']);
+            
 
-            $viagems[] = $viagem;
+            $viagems = $viagem;
         }
         return $viagems;
     }
@@ -62,10 +66,12 @@ class UsuarioDao extends Db implements InterfaceDao {
         $linha = $stmt->fetch();
 
         $viagem = new Viagem();
+		$viagem->setId($linha['id']);
         $viagem->setDistancia($linha['distancia']);
         $viagem->setLugar($linha['lugar']);
-        $viagem->setN_alunos($linha['N_alunos']);
-        $viagem->setId($linha['id']);
+        $viagem->setN_alunos($linha['n_alunos']);
+        $viagem->setRelatorio($linha['relatorio']);
+        
         
         return $viagem;
     }

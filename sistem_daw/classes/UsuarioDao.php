@@ -5,23 +5,26 @@ class UsuarioDao extends Db implements InterfaceDao {
     private $table = 'usuario';
 
     public function insert($usuario) {
-        $stmt = $this->conexao->prepare("INSERT INTO {$this->table} (nome, senha, email) VALUES (:nome, :senha, :email)");
-
+        $stmt = $this->conexao->prepare("INSERT INTO {$this->table} (id, nome, senha, email, tipo) VALUES (:id, :nome, :senha, :email, :tipo)");
+		
+		 $stmt->bindValue(':id', $usuario->getId());
         $stmt->bindValue(':nome', $usuario->getNome());
         $stmt->bindValue(':senha', $usuario->getSenha());
         $stmt->bindValue(':email', $usuario->getEmail());
+        $stmt->bindValue(':tipo', $usuario->getTipo());
 
         return $stmt->execute();
     }
     
     public function update($usuario) {
         $stmt = $this->conexao->prepare("UPDATE {$this->table} "
-                . "SET nome=:nome, senha = :senha, email = :email WHERE id = :id;");
+                . "SET nome=:nome, senha = :senha, email = :email, tipo = :tipo WHERE id = :id;");
 
         $stmt->bindValue(':id', $usuario->getId());
         $stmt->bindValue(':nome', $usuario->getNome());
         $stmt->bindValue(':senha', $usuario->getSenha());
         $stmt->bindValue(':email', $usuario->getEmail());
+        $stmt->bindValue(':tipo', $usuario->getTipo());
 
         return $stmt->execute();
     }    
@@ -43,10 +46,12 @@ class UsuarioDao extends Db implements InterfaceDao {
 
         while ($linha = $stmt->fetch()) {
             $usuario = new Usuario();
+			$usuario->setId($linha['id']);
             $usuario->setNome($linha['nome']);
             $usuario->setSenha($linha['senha']);
             $usuario->setEmail($linha['email']);
-            $usuario->setId($linha['id']);
+            $usuario->setTipo($linha['tipo']);
+            
 
             $usuarios[] = $usuario;
         }
@@ -62,10 +67,12 @@ class UsuarioDao extends Db implements InterfaceDao {
         $linha = $stmt->fetch();
 
         $usuario = new Usuario();
+		$usuario->setId($linha['id']);
         $usuario->setNome($linha['nome']);
         $usuario->setSenha($linha['senha']);
         $usuario->setEmail($linha['email']);
-        $usuario->setId($linha['id']);
+        $usuario->setTipo($linha['tipo']);
+        
         
         return $usuario;
     }
