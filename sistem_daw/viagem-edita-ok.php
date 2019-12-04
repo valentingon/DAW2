@@ -4,7 +4,7 @@ include_once 'classes/autoload.php';
 Login::checkAuth();
 
 //Verifica se veio tudo preenchido do formulário
-if (   !Validate::isEmpty('id')
+if ( 
     && !Validate::isEmpty('distancia')
     && !Validate::isEmpty('lugar')
     && !Validate::isEmpty('n_alunos')
@@ -13,7 +13,7 @@ if (   !Validate::isEmpty('id')
 	) 
 
     $viagem = new Viagem();
-    $viagem->setId($_POST['id']);
+ 
     $viagem->setDistancia($_POST['distancia']);
     $viagem->setLugar($_POST['lugar']);
     $viagem->setN_alunos($_POST['n_alunos']);

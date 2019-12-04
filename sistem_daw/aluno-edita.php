@@ -1,6 +1,6 @@
 <?php
 include_once 'classes/autoload.php';
-
+Login::checkAuth();
 //Verifica se veio tudo preenchido do formulário
 if (isset($_GET['id']) && $_GET['id'] != "") {
 
@@ -12,11 +12,7 @@ if (isset($_GET['id']) && $_GET['id'] != "") {
     
 }
 ?>
-<?php
-include_once 'classes/autoload.php';
 
-Login::checkAuth();
-?>
 <html>
 	<head>
 		<title>Inicio</title>

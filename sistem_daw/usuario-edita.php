@@ -69,9 +69,8 @@ Login::checkAuth();
 			</div>
 			<div id="medio">
 				<div class="forrm">
-					<form  action="produto-edita-ok.php" method="POST" enctype="multipart/form-data">
-						<label>Id</label>
-						<input type="text" name="id" required="true">
+					<form  action="usuario-edita-ok.php" method="POST" enctype="multipart/form-data">
+						
 
 						<label>Nome</label>
 						<input  type="text" name="nome" required="true">

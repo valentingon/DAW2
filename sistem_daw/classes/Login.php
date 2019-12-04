@@ -16,23 +16,23 @@ class Login extends Db {
         $stmt->bindValue(':senha', $usuario->getSenha());
         $stmt->bindValue(':email', $usuario->getEmail());
         $stmt->execute();
+		$return = false;
     
-        $linha = $stmt->fetch();
-        
-        if($linha){
-            $usuario = new Usuario();
-            $usuario->setNome($linha['nome']);
-            $usuario->setSenha($linha['senha']);
-            $usuario->setEmail($linha['email']);
-            $usuario->setId($linha['id']);
-            
-            $_SESSION['login'] = $usuario;
-            
-            return $usuario;
-        }else {
-            return false;
-        }
 
+        if($result = $stmt->fetch()){
+			$_SESSION["logado"] = true;
+			$_SESSION["id"] = $result['id'];
+			
+			if($result['tipo'] == "ROOT")
+				$_SESSION["tipo"] = "ROOT";
+			if($result['tipo'] == "SUP")
+				$_SESSION["tipo"] = "SUP";
+			else
+				$_SESSION["tipo"] = "PROF";
+			$return = true;
+		}
+		return $return;
+   
     }
 }
 

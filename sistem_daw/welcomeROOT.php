@@ -5,6 +5,7 @@
 		<link rel='stylesheet' type="text/css" href="assets/css/welcome.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		
 	</head>
 	<body>
 			<nav id="barra-iz">
@@ -49,29 +50,9 @@
 				
 			</div>
 			<div id="medio">
-				<form  action="viagem-edita-ok.php" method="POST" enctype="multipart/form-data">
-						<label>Distancia</label>
-						<input type="text" class="form-control" value="<?php echo $userData->getDistancia(); ?>" name="distancia" required="true">
-						
-						<label>Lugar</label>
-						<input type="text" class="form-control" value="<?php echo $userData->getLugar(); ?>" name="lugar" required="true">
-					
-						<label>Numero de Alunos</label>
-						<input type="number" class="form-control" value="<?php echo $userData->getN_alunos(); ?>" name="n_alunos" required="true">
-						
-						<label>Relatorio</label>
-						<input type="text" class="form-control" value="<?php echo $userData->getRelatorio(); ?>" name="relatorio" required="true">
-					
-
-						
-					
-
-					<button type="submit"  class="button button1">Salvar</button>
-
-				</form>
+				<h1 id="welcome">Bem Vindo ao Sistema</h1>
 			</div>
 		</section>
 		<script src="assets/js/main.js"></script>
-		
 	</body>
 </html>	

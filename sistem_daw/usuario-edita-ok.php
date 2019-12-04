@@ -4,7 +4,7 @@ include_once 'classes/autoload.php';
 Login::checkAuth();
 
 //Verifica se veio tudo preenchido do formulário
-if (   !Validate::isEmpty('id')
+if (   
     && !Validate::isEmpty('nome')
     && !Validate::isEmpty('senha')
     && !Validate::isEmpty('email')
@@ -13,7 +13,7 @@ if (   !Validate::isEmpty('id')
 	) {
 
     $usuario = new Usuario();
-    $usuario->setId($_POST['id']);
+	$usuario->getNome($_POST['id']);
     $usuario->setNome($_POST['nome']);
     $usuario->setSenha($_POST['senha']);
     $usuario->setEmail($_POST['email']);

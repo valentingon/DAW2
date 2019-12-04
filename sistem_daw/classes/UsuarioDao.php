@@ -16,18 +16,23 @@ class UsuarioDao extends Db implements InterfaceDao {
         return $stmt->execute();
     }
     
+	
+	
     public function update($usuario) {
-        $stmt = $this->conexao->prepare("UPDATE {$this->table} "
-                . "SET nome=:nome, senha = :senha, email = :email, tipo = :tipo WHERE id = :id;");
+        $stmt = $this->conexao->prepare("UPDATE {$this->table} (id, nome, senha, email, tipo) VALUES (:id, :nome, :senha, :email, :tipo)");
 
         $stmt->bindValue(':id', $usuario->getId());
         $stmt->bindValue(':nome', $usuario->getNome());
         $stmt->bindValue(':senha', $usuario->getSenha());
         $stmt->bindValue(':email', $usuario->getEmail());
         $stmt->bindValue(':tipo', $usuario->getTipo());
-
+		
         return $stmt->execute();
-    }    
+    }  
+
+
+
+	
 
     public function delete($usuario) {
         $stmt = $this->conexao->prepare("DELETE FROM {$this->table} "

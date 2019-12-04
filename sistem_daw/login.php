@@ -26,9 +26,9 @@
 								
 								<input list="tipos" name="tipos">
 								  <datalist id="tipos">
-									<option value="root">Root</option>
-									<option value="super">Supervisor</option>
-									<option value="profe">Profe</option>
+									<option value="ROOT" name="Root">Root</option>
+									<option value="SUP" name="Sup">Supervisor</option>
+									<option value="PROF" name="Prof">Profe</option>
 								  </datalist>
 								
 								<button type="submit" name="Login" value="Login" class="button button1">Iniciar sesión</button>
